@@ -1,7 +1,15 @@
+;;(add-to-list 'load-path
+;;	     "~/.emacs.d/plugins/")
+;;(require 'yasnippet) ;; not yasnippet-bundle
+;;(yas/initialize)
+;;(yas/load-directory "~/.emacs.d/plugins/snippets")
+
 (add-to-list 'load-path "/home/ershad/.emacs.d/")
+
 (require 'python)
 (require 'linum)
 (require 'boxquote)
+(require 'autopair)
 (define-key python-mode-map (kbd "C-m") 'newline-and-indent)
 (global-set-key (kbd "C-c p") (lambda () (interactive) (shell-command "git push origin master")))
 (custom-set-variables
