@@ -44,11 +44,11 @@
 ;;------------------------------------------------------------------------------
 ;; Inactive(s)
 
-;;(add-to-list 'load-path
-;;	     "~/.emacs.d/plugins/")
-;;(require 'yasnippet) ;; not yasnippet-bundle
-;;(yas/initialize)
-;;(yas/load-directory "~/.emacs.d/plugins/snippets")
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/")
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/snippets")
 
 ;;(setq jabber-account-list
 ;;    '(("ershad92@gmail.com" 
@@ -69,7 +69,10 @@
  '(erc-track-shorten-start 5)
  '(erc-track-visibility t)
  '(inhibit-startup-screen t)
- '(jabber-account-list (quote (("ershad92@gmail.com" (:network-server . "talk.google.com") (:connection-type . ssl))))))
+ '(jabber-account-list (quote (("ershad92@gmail.com" (:network-server . "talk.google.com") (:connection-type . ssl)))))
+ '(twitter-include-replies t)
+ '(twitter-status-source "erel")
+ '(twitter-username "ershus"))
  
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
