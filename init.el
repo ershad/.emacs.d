@@ -1,9 +1,14 @@
 (add-to-list 'load-path "/home/ershad/.emacs.d/")
 
-;;newline-and-indent in C++ mode, Thanks to ashawley - #emacs
+;;newline-and-indent in C++ mode, Thanks to ashawley in #emacs IRC channel
 (add-hook 'c++-mode-hook 'ershad-c++-hook-fun)
 (defun ershad-c++-hook-fun ()
   (local-set-key "\r" 'newline-and-indent))
+  
+(add-hook 'c-mode-hook 'ershad-c-hook-fun)
+(defun ershad-c-hook-fun ()
+  (local-set-key "\r" 'newline-and-indent))
+
 
 
 
@@ -62,6 +67,13 @@
 ;;       (:network-server . "talk.google.com")
 ;;       (:connection-type . ssl))))
 
+;; (load-file "/home/ershad/Downloads/cedet-1.0/common/cedet.el")
+;; (global-ede-mode 1)                      ; Enable the Project management system
+;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
+;; (define-key your-mode-map-here "." 'semantic-complete-self-insert)
+
+
 ;;------------------------------------------------------------------------------
 ;; Misc
 
@@ -86,4 +98,5 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "Monospace")))))
+(put 'upcase-region 'disabled nil)
