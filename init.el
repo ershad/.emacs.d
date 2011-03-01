@@ -1,3 +1,13 @@
+(add-to-list 'default-frame-alist '(height . 24))
+(add-to-list 'default-frame-alist '(width . 80))
+
+
+(add-to-list 'load-path "/home/ershad/.emacs.d/")
+(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+
+
 ;; (load-file "~/cedet-1.0/common/cedet.el")
 ;; (global-ede-mode 1)                      ; Enable the Project management system
 ;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
@@ -141,6 +151,7 @@
  '(erc-track-visibility t)
  '(inhibit-startup-screen t)
  '(jabber-account-list (quote (("ershad92@gmail.com" (:network-server . "talk.google.com") (:connection-type . ssl)))))
+ '(linum-format "%d  ")
  '(show-paren-mode t)
  '(twitter-include-replies t)
  '(twitter-status-source "erel")
@@ -154,3 +165,9 @@
 ;;  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
 ;; (put 'upcase-region 'disabled nil)
 ;; (set-background-color "black")
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
