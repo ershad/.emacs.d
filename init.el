@@ -114,11 +114,33 @@
 ;;------------------------------------------------------------------------------
 ;; Inactive(s)
 
-;;(add-to-list 'load-path
-;;	     "~/.emacs.d/plugins/")
-;;(require 'yasnippet) ;; not yasnippet-bundle
-;;(yas/initialize)
-;;(yas/load-directory "~/.emacs.d/plugins/snippets")
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/")
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/snippets")
+
+(when (require 'diminish nil 'noerror)
+(eval-after-load "company"
+   '(diminish 'company-mode "Cmp"))
+(eval-after-load "abbrev"
+   '(diminish 'abbrev-mode "Ab"))
+(eval-after-load "yasnippet"
+   '(diminish 'yas/minor-mode "Y")))
+
+;;------------------------------------------
+;; Set up Environment Variable
+;;------------------------------------------
+
+;; User of this emacs
+(setq user-full-name
+      "Ershad K")
+(setq user-mail-address
+      "ershad92@gmail.com")
+
+;; "yes or no" to "y or n"
+(fset 'yes-or-no-p 'y-or-n-p)
+
 
 ;;(setq jabber-account-list
 ;;    '(("ershad92@gmail.com" 
@@ -144,6 +166,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(erc-notify-list nil)
  '(erc-track-enable-keybindings t)
  '(erc-track-shorten-cutoff 5)
