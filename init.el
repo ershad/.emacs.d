@@ -120,6 +120,11 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/snippets")
 
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(setq ac-auto-start 3)
+
+
 (when (require 'diminish nil 'noerror)
 (eval-after-load "company"
    '(diminish 'company-mode "Cmp"))
@@ -140,6 +145,23 @@
 
 ;; "yes or no" to "y or n"
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Show time
+(display-time)
+
+(setq x-select-enable-clipboard t)
+(setq save-place-file "~/snippets/")
+
+;; Space indentation
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq c-basic-indent 4)
+(setq c-basic-offset 4)
+
+
+;; Encoding
+(set-keyboard-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 
 
 ;;(setq jabber-account-list
