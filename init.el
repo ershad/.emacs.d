@@ -18,6 +18,7 @@
 (add-to-list 'load-path "/home/ershad/.emacs.d/")
 (require 'auto-complete-config)
 (require 'auto-complete-etags)
+(require 'cscope)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 
