@@ -1,9 +1,13 @@
+(setq fill-column 80)
+(auto-fill-mode)
+;; (setq debug-on-error t)
+
 (add-to-list 'default-frame-alist '(height . 24))
 (add-to-list 'default-frame-alist '(width . 80))
 
-(add-to-list 'load-path "/home/ershad/.emacs.d/newsticker/")
-(autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
-(autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
+;; (add-to-list 'load-path "/home/ershad/.emacs.d/newsticker/")
+;; (autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
+;; (autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
 
 
 
