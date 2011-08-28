@@ -1,3 +1,6 @@
+;; Disable menu bar
+(menu-bar-mode 0)
+
 (setq fill-column 80)
 (auto-fill-mode)
 ;; (setq debug-on-error t)
@@ -185,6 +188,38 @@
 ;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
 ;; (define-key your-mode-map-here "." 'semantic-complete-self-insert)
 
+;;-----------------------------------------------------------------------------
+;; Kernel stuff:
+(defun c-lineup-arglist-tabs-only (ignored)
+  "Line up argument lists by tabs, not spaces"
+  (let* ((anchor (c-langelem-pos c-syntactic-element))
+	 (column (c-langelem-2nd-pos c-syntactic-element))
+	 (offset (- (1+ column) anchor))
+	 (steps (floor offset c-basic-offset)))
+    (* (max steps 1)
+       c-basic-offset)))
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            ;; Add kernel style
+            (c-add-style
+             "linux-tabs-only"
+             '("linux" (c-offsets-alist
+                        (arglist-cont-nonempty
+                         c-lineup-gcc-asm-reg
+                         c-lineup-arglist-tabs-only))))))
+
+(add-hook 'c-mode-hook
+          (lambda ()
+            (let ((filename (buffer-file-name)))
+              ;; Enable kernel mode for the appropriate files
+              (when (and filename
+                         (string-match (expand-file-name "~/src/linux-trees")
+                                       filename))
+                (setq indent-tabs-mode t)
+                (c-set-style "linux-tabs-only")))))
+
+
 
 ;;------------------------------------------------------------------------------
 ;; Misc
@@ -199,7 +234,13 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(display-time-mode t)
+ '(erc-autojoin-channels-alist (quote (("irc.freenode.net" "#fsug-tvm" "#zyxware" "#smc-project"))))
+ '(erc-autojoin-mode t)
+ '(erc-log-write-after-send t)
  '(erc-notify-list nil)
+ '(erc-save-buffer-on-part t t)
+ '(erc-sound-mode nil)
  '(erc-track-enable-keybindings t)
  '(erc-track-shorten-cutoff 5)
  '(erc-track-shorten-start 5)
@@ -209,6 +250,8 @@
  '(linum-format "%d  ")
  '(newsticker-html-renderer (quote w3m-region))
  '(newsticker-url-list (quote (("Syntax" "http://ershadk.wordpress.com/feed" nil nil nil) ("Kernel.net" "http://feeds.feedburner.com/kernelnet" nil nil nil) ("SMC Planet" "http://planet.smc.org.in/rss20.xml" nil nil nil))))
+ '(python-default-interpreter (quote cpython))
+ '(python-python-command "python2.7")
  '(show-paren-mode t)
  '(twitter-include-replies t)
  '(twitter-status-source "erel")
@@ -227,4 +270,5 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "#201f1f" :foreground "#e0dedb" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(erc-current-nick-face ((t (:foreground "green" :weight bold)))))
