@@ -1,10 +1,14 @@
 ;; Disable menu bar
-(menu-bar-mode 0)
+;;(menu-bar-mode 0)
 
+(delete-selection-mode t)
 (setq fill-column 80)
 (auto-fill-mode)
+(ido-mode)
+(tool-bar-mode)
+(menu-bar-mode)
 ;; (setq debug-on-error t)
-
+(set-cursor-color "#EBDDE2")
 (add-to-list 'default-frame-alist '(height . 24))
 (add-to-list 'default-frame-alist '(width . 80))
 
@@ -233,6 +237,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(display-time-mode t)
  '(erc-autojoin-channels-alist (quote (("irc.freenode.net" "#fsug-tvm" "#zyxware" "#smc-project"))))
@@ -246,13 +251,16 @@
  '(erc-track-shorten-start 5)
  '(erc-track-visibility t)
  '(inhibit-startup-screen t)
+ '(ispell-program-name "/usr/bin/ispell")
  '(jabber-account-list (quote (("ershad92@gmail.com" (:network-server . "talk.google.com") (:connection-type . ssl)))))
+ '(latex-run-command "pdflatex")
  '(linum-format "%d  ")
  '(newsticker-html-renderer (quote w3m-region))
  '(newsticker-url-list (quote (("Syntax" "http://ershadk.wordpress.com/feed" nil nil nil) ("Kernel.net" "http://feeds.feedburner.com/kernelnet" nil nil nil) ("SMC Planet" "http://planet.smc.org.in/rss20.xml" nil nil nil))))
  '(python-default-interpreter (quote cpython))
  '(python-python-command "python2.7")
  '(show-paren-mode t)
+ '(tex-run-command "pdftex")
  '(twitter-include-replies t)
  '(twitter-status-source "erel")
  '(twitter-username "ershus"))
@@ -264,7 +272,7 @@
 ;;   ;; If there is more than one, they won't work right.
 ;;  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
 ;; (put 'upcase-region 'disabled nil)
-;; (set-background-color "black")
+ ;; (set-background-color "black")
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
