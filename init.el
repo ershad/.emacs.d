@@ -16,6 +16,9 @@
 ;; (autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
 ;; (autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
 
+(add-to-list 'load-path "/home/ershad/dev/pony-mode")
+(require 'pony-mode)
+
 
 
 (add-to-list 'load-path "/home/ershad/.emacs.d/")
