@@ -1,3 +1,10 @@
+(defun viper-cua-region-fix()
+  (define-key viper-vi-global-user-map [backspace] 'backward-delete-char-untabify)
+  (define-key viper-vi-global-user-map "\C-d" 'delete-char)
+  (define-key viper-insert-global-user-map [backspace] 'backward-delete-char-untabify)
+  (define-key viper-insert-global-user-map "\C-d" 'delete-char))
+
+    (eval-after-load 'viper '(viper-cua-region-fix))
 ;; Disable menu bar
 ;;(menu-bar-mode 0)
 
@@ -6,7 +13,7 @@
 (auto-fill-mode)
 (ido-mode)
 (tool-bar-mode)
-(menu-bar-mode)
+;; (menu-bar-mode)
 ;; (setq debug-on-error t)
 (set-cursor-color "#EBDDE2")
 (add-to-list 'default-frame-alist '(height . 24))
