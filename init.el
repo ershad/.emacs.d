@@ -85,3 +85,43 @@ ELPA (or MELPA).")
  (run-at-time 5 nil 'prelude-tip-of-the-day))
 
 ;;; init.el ends here
+(load-theme 'phoenix-dark-pink t)
+(add-hook 'prog-mode-hook 'whitespace-turn-off t)
+(setq ring-bell-function (lambda () (message "beep!")))
+
+;;; Custom functions
+(defun toggle-comment-on-line ()
+  "comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+
+;; (global-set-key "\C-c\C-c" 'toggle-comment-on-line)
+
+(powerline-default-theme)
+(auto-complete)
+(auto-complete-mode t)
+(setq-default cursor-type 'bar)
+
+(add-to-list 'default-frame-alist '(height . 24))
+(add-to-list 'default-frame-alist '(width . 80))
+
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(setq ac-auto-start 3)
+
+(setq user-full-name
+      "Ershad K")
+(setq user-mail-address
+      "ershad92@gmail.com")
+
+;; "yes or no" to "y or n"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Show time
+(display-time)
+
+
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 2)
+(setq c-basic-indent 2)
+(setq c-basic-offset 2)
